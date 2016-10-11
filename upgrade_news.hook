@@ -5,6 +5,6 @@ Target = *
 
 [Action]
 Description = Checking for unread Arch news...
-Exec = /bin/sh -c "rsstail -p1u https://www.archlinux.org/feeds/news/ | awk 'BEGIN{FS=\": \"; \"cat /etc/pacman.d/upgrade_timestamp\" | getline updatetime}{if (NR % 2 != 0) newstitle=$0; else {\"date --date=\\"\"$2\"\\" +%s\" | getline newstime; if (newstime > updatetime) {iffail=1; print newstitle}}}'"
+Exec = /bin/sh -c "rsstail -p1u https://www.archlinux.org/feeds/news/ | awk 'BEGIN{FS=\": \"; \"cat /etc/pacman.d/upgrade_timestamp\" | getline updatetime}{if (NR % 2 != 0) newstitle=$0; else {\"date --date=\\"\"$2\"\\" +%s\" | getline newstime; if (newstime > updatetime) print newstitle}}'"
 When = PreTransaction
 AbortOnFail
