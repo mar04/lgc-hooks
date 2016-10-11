@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating mirrorlist...
+Exec = /bin/sh -c "mv /etc/pacman.d/mirrorlist{.pacnew,} ; reflector -a 1 -f 5 --save /etc/pacman.d/mirrorlist-r"
+When = PostTransaction

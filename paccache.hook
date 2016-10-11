@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Performing pacman's cache maintenance...
+Exec = /bin/paccache -rk2
+When = PostTransaction

@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = "Recording update timestamp..."
+Exec = /bin/sh -c "echo $(date +%s) > /etc/pacman.d/upgrade_timestamp"
+When = PostTransaction
